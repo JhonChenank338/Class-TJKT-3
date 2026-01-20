@@ -1,0 +1,1071 @@
+:root {
+    --neon: #00e5ff;
+    --dark: #010816;
+    --card: rgba(0, 229, 255, 0.08);
+    --border: rgba(0, 229, 255, 0.25);
+    --glow: rgba(0, 229, 255, 0.6);
+    /* Font Seragam */
+    --font-cyber: 'Orbitron', sans-serif;
+    --font-main: 'Rajdhani', sans-serif;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    scroll-behavior: smooth; 
+}
+
+body { 
+    background-color: var(--dark); 
+    color: white; 
+    font-family: var(--font-main); 
+    overflow-x: hidden; 
+}
+
+/* Background Grid */
+.cyber-bg { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), 
+                      linear-gradient(90deg, var(--border) 1px, transparent 1px); 
+    background-size: 50px 50px; 
+    z-index: -1; 
+    opacity: 0.15; 
+}
+
+/* Navigation */
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 8%; 
+    background: rgba(1, 8, 22, 0.95); 
+    border-bottom: 2px solid var(--neon); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+}
+
+.logo { 
+    font-family: var(--font-cyber); 
+    color: var(--neon); 
+    font-size: 1.6rem; 
+    letter-spacing: 2px; 
+}
+
+.menu { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; /* Tambahkan baris ini di baris 61 */
+}.menu a { 
+    font-family: var(--font-cyber); 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: 0.3s; 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+}
+
+.menu a:hover { 
+    color: var(--neon); 
+    text-shadow: 0 0 10px var(--neon); 
+
+    .theme-switch {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    border: 2px solid var(--neon);
+    background: var(--card);
+    color: var(--neon);
+    transition: 0.3s;
+    margin-left: 5px;
+}
+}
+
+/* Header & Hero */
+.header-content-stacked { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 100px 5% 60px; 
+    text-align: center; 
+}
+
+.main-photo-box { 
+    background: var(--card); 
+    border: 1px solid var(--border); 
+    padding: 20px; 
+    border-radius: 20px; 
+    margin-bottom: 35px; 
+    display: inline-block; 
+    transition: 0.5s ease; 
+}
+
+.main-photo-box:hover { 
+    background: var(--neon); 
+    border-color: var(--neon); 
+    box-shadow: 0 0 30px var(--glow); 
+    transform: scale(1.05); 
+}
+
+.pic-box { 
+    width: 120px; 
+    height: 120px; 
+    border: 2px solid var(--neon); 
+    overflow: hidden; 
+    border-radius: 12px; 
+    margin: 0 auto; 
+}
+
+.pic-box img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.hero-text h1 { 
+    font-family: var(--font-cyber); 
+    font-size: clamp(1.8rem, 6vw, 3rem); 
+    color: var(--neon); 
+    text-shadow: 0 0 20px var(--neon); 
+}
+
+/* Section General */
+.section { padding: 80px 0; }
+.title-section { 
+    text-align: center; 
+    font-family: var(--font-cyber); 
+    margin-bottom: 50px; 
+    color: var(--neon); 
+    letter-spacing: 4px; 
+    width: 100%;
+    text-transform: uppercase;
+}
+
+/* Struktur Organisasi & Siswa */
+.org-container { display: flex; flex-direction: column; align-items: center; gap: 50px; }
+.row-org { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; width: 100%; }
+
+.node { 
+    background: var(--card); 
+    border: 1px solid var(--border); 
+    padding: 20px; 
+    border-radius: 15px; 
+    width: 200px; 
+    text-align: center; 
+    transition: 0.4s; 
+    cursor: pointer; 
+    /* FIX RATA TENGAH */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.node:hover { 
+    background: var(--neon); 
+    box-shadow: 0 0 30px var(--glow); 
+    transform: translateY(-10px); 
+    color: #010816; 
+}
+
+.node .name { 
+    font-family: var(--font-cyber); 
+    color: var(--neon); 
+    margin-top: 10px; 
+    text-shadow: 0 0 5px var(--glow); 
+    text-transform: uppercase;
+}
+
+/* FIX NISN BIAR MUNCUL */
+.node .nisn {
+    font-size: 0.8rem;
+    color: white;
+    margin-top: 5px;
+    font-family: var(--font-main);
+}
+
+.node:hover .name, .node:hover .nisn { color: var(--dark); text-shadow: none; }
+
+/* Galeri Section */
+.galeri-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    padding: 0 8%; 
+}
+
+.galeri-item { cursor: pointer; text-align: center; }
+
+.img-16-9 { 
+    width: 100%; 
+    aspect-ratio: 16/9; 
+    overflow: hidden; 
+    border-radius: 15px; 
+    border: 1px solid var(--border); 
+    transition: 0.4s; 
+}
+
+.img-16-9 img { width: 100%; height: 100%; object-fit: cover; }
+
+.galeri-item .caption { 
+    font-family: var(--font-cyber); 
+    margin-top: 10px; 
+    color: white; 
+    letter-spacing: 1px;
+    transition: 0.3s; 
+}
+
+.galeri-item:hover {
+    transform: translateY(-5px);
+}
+
+.galeri-item:hover .img-16-9 { 
+    transform: scale(1.05); 
+    border-color: var(--neon); 
+    box-shadow: 0 0 20px var(--glow); 
+}
+
+.galeri-item:hover .caption { 
+    color: var(--neon); 
+    text-shadow: 0 0 10px var(--neon); 
+}
+
+/* Tentang Kami */
+.about-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.about-card { 
+    background: var(--card); 
+    border: 1px solid var(--border); 
+    padding: 40px; 
+    border-radius: 20px; 
+    text-align: center; 
+    margin: 0 8%; 
+    transition: 0.4s ease;
+}
+
+.about-card:hover {
+    border-color: var(--neon);
+    box-shadow: 0 0 20px var(--card);
+}
+
+.about-card p:hover {
+    color: var(--neon);
+    text-shadow: 0 0 5px var(--glow);
+}
+
+/* Sosmed & Footer */
+footer#sosmed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.sosmed-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.btn-sosmed { 
+    font-family: var(--font-cyber);
+    padding: 12px 25px; 
+    border: 2px solid var(--neon); 
+    color: var(--neon) !important; 
+    text-decoration: none; 
+    border-radius: 10px; 
+    font-weight: bold; 
+    transition: 0.4s; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 10px;
+    text-shadow: 0 0 8px var(--glow);
+}
+
+.btn-sosmed:hover { 
+    background: var(--neon); 
+    color: black !important; 
+    box-shadow: 0 0 40px var(--neon); 
+    text-shadow: none;
+}
+
+/* --- MUSIC PLAYER FIX --- */
+.music-player-container { 
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 9999; 
+}
+
+.player-toggle { 
+    width: 60px; 
+    height: 60px; 
+    background: var(--dark); 
+    border: 2px solid var(--neon); 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: var(--neon); 
+    cursor: pointer; 
+    box-shadow: 0 0 15px var(--glow); 
+    transition: 0.4s; 
+}
+
+.player-card { 
+    position: absolute; 
+    bottom: 80px; 
+    right: 0; 
+    width: 300px; 
+    background: rgba(1, 8, 22, 0.98); 
+    border: 2px solid var(--neon); 
+    border-radius: 15px; 
+    padding: 20px; 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: 0.4s; 
+    transform: translateY(20px); 
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.player-card.active { 
+    opacity: 1; 
+    pointer-events: auto; 
+    transform: translateY(0); 
+}
+
+#song-title { 
+    font-family: var(--font-cyber); 
+    color: var(--neon); 
+    font-size: 0.85rem; 
+    margin-bottom: 12px; 
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.progress-container { 
+    background: rgba(255,255,255,0.1); 
+    height: 6px; 
+    width: 100%; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    margin-bottom: 5px; 
+}
+
+.progress-bar { 
+    background: var(--neon); 
+    height: 100%; 
+    width: 0%; 
+    border-radius: 10px; 
+    transition: width 0.1s linear; 
+    box-shadow: 0 0 10px var(--neon);
+}
+
+.time-info { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 0.7rem; 
+    color: var(--neon); 
+    margin-bottom: 15px; 
+    font-family: var(--font-cyber);
+}
+
+.controls { 
+    display: flex; 
+    justify-content: center; 
+    gap: 25px; 
+    margin-bottom: 15px;
+}
+
+.controls button { 
+    background: none; 
+    border: none; 
+    color: white; 
+    font-size: 1.2rem; 
+    cursor: pointer; 
+    transition: 0.3s; 
+}
+
+.controls button:hover { color: var(--neon); transform: scale(1.1); }
+
+.playlist { 
+    max-height: 120px; 
+    overflow-y: auto; 
+    border-top: 1px solid var(--border); 
+    margin-top: 10px; 
+    padding-top: 10px; 
+}
+
+.playlist::-webkit-scrollbar { width: 4px; }
+.playlist::-webkit-scrollbar-thumb { background: var(--neon); border-radius: 10px; }
+
+.playlist-item { 
+    padding: 8px; 
+    font-size: 0.75rem; 
+    cursor: pointer; 
+    border-radius: 4px;
+    margin-bottom: 2px;
+    transition: 0.2s;
+}
+
+.playlist-item:hover { background: var(--card); color: var(--neon); }
+.playlist-item.active { 
+    color: var(--dark); 
+    background: var(--neon); 
+    font-weight: bold; 
+}
+
+/* Animations & Responsive */
+.reveal { opacity: 0; transform: translateY(40px); transition: 1s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* SISWA GRID FIX MAX 6 BARIS */
+.siswa-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    padding: 0 8%;
+}
+
+@media (max-width: 1024px) { .siswa-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 768px) { .siswa-grid { grid-template-columns: repeat(3, 1fr); } .galeri-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { 
+    .galeri-grid { grid-template-columns: 1fr; } 
+    .siswa-grid { grid-template-columns: repeat(2, 1fr); } 
+    .menu { display: none; } 
+}
+/* --- PERBAIKAN LIGHT MODE PREMIUM & SINKRONISASI MUSIK --- */
+
+:root {
+    /* Warna aksen Light Mode yang lebih hidup */
+    --accent-light: #00acc1;
+    --bg-light: #f8f9fa;
+    --card-white: #ffffff;
+    --text-main: #2c3e50;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 1. Perubahan Body & Background */
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+}
+
+body.light-mode .cyber-bg {
+    background-image: 
+        linear-gradient(rgba(0, 172, 193, 0.1) 1px, transparent 1px), 
+        linear-gradient(90deg, rgba(0, 172, 193, 0.1) 1px, transparent 1px);
+    opacity: 0.8;
+}
+
+/* 2. Navigasi Light Mode */
+body.light-mode nav {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 2px solid var(--accent-light);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+body.light-mode .menu a {
+    color: var(--text-main);
+}
+
+body.light-mode .logo span {
+    color: var(--accent-light);
+}
+
+/* 3. Card & Box (Struktur & Siswa) */
+body.light-mode .node, 
+body.light-mode .about-card,
+body.light-mode .main-photo-box {
+    background: var(--card-white);
+    border: 1px solid rgba(0, 172, 193, 0.3);
+    box-shadow: var(--shadow-soft);
+}
+
+body.light-mode .node .name {
+    color: var(--accent-light);
+    text-shadow: none;
+}
+
+body.light-mode .node .nisn {
+    color: #7f8c8d;
+}
+
+/* 4. Hover Efek Light Mode */
+body.light-mode .node:hover {
+    background: var(--accent-light);
+    color: white;
+}
+
+body.light-mode .node:hover .name,
+body.light-mode .node:hover .nisn {
+    color: white;
+}
+
+/* 5. --- PERUBAHAN MUSIC PLAYER (SINKRON) --- */
+body.light-mode .player-card {
+    background: rgba(255, 255, 255, 0.98);
+    border: 2px solid var(--accent-light);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode #trackTitle,
+body.light-mode .time-info,
+body.light-mode .controls button {
+    color: var(--text-main);
+}
+
+body.light-mode .controls button:hover {
+    color: var(--accent-light);
+}
+
+body.light-mode .progress-container {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .playlist-item {
+    color: var(--text-main);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+body.light-mode .playlist-item:hover {
+    background: rgba(0, 172, 193, 0.1);
+}
+
+body.light-mode .playlist-item.active {
+    background: var(--accent-light);
+    color: white;
+}
+
+body.light-mode .player-toggle {
+    background: white;
+    color: var(--accent-light);
+    border-color: var(--accent-light);
+}
+/* --- EFEK HOVER KHUSUS LIGHT MODE --- */
+
+/* 1. Efek pada Foto Utama & Logo di Bagian Atas */
+body.light-mode .main-photo-box:hover {
+    background: #00acc1;
+    border-color: #00838f;
+    box-shadow: 0 0 25px rgba(0, 172, 193, 0.4);
+    transform: scale(1.05);
+}
+
+/* 2. Efek pada Card Siswa & Struktur (Bagian yang di blok) */
+body.light-mode .node:hover {
+    background: #00acc1;
+    border-color: #00838f;
+    box-shadow: 0 10px 20px rgba(0, 172, 193, 0.3);
+    transform: translateY(-10px);
+}
+
+/* Memastikan teks di dalam card jadi putih saat di-hover */
+body.light-mode .node:hover .name,
+body.light-mode .node:hover .label,
+body.light-mode .node:hover .nisn {
+    color: #ffffff !important;
+    text-shadow: none;
+}
+
+/* 3. Efek pada Galeri (Bingkai Foto) */
+body.light-mode .img-16-9:hover {
+    border-color: #00acc1;
+    box-shadow: 0 0 20px rgba(0, 172, 193, 0.4);
+    transform: scale(1.02);
+}
+
+body.light-mode .galeri-item:hover .caption {
+    color: #00acc1;
+    font-weight: bold;
+}
+
+/* 4. Efek pada Tombol Sosmed */
+body.light-mode .btn-sosmed:hover {
+    background: #00acc1;
+    color: white !important;
+    box-shadow: 0 0 20px rgba(0, 172, 193, 0.5);
+    border-color: #00838f;
+}
+
+/* 5. Efek pada Navigasi Menu */
+body.light-mode .menu a:hover {
+    color: #00acc1;
+    background: rgba(0, 172, 193, 0.1);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+/* 6. Perubahan Warna Musik Toggle saat Light Mode Hover */
+body.light-mode .player-toggle:hover {
+    background: #00acc1;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 172, 193, 0.4);
+}
+/* --- KODE TOMBOL MODE DENGAN GARIS BLOK (DITAMBAHKAN) --- */
+
+.theme-switch {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px; /* Sesuaikan ukuran agar pas di navigasi */
+    height: 35px;
+    margin-left: 15px;
+    border-radius: 8px; 
+    /* Garis blok mengikuti warna neon cyber */
+    border: 2px solid var(--neon);
+    background: var(--card);
+    color: var(--neon);
+    transition: all 0.3s ease;
+}
+
+.theme-switch:hover {
+    background: var(--neon);
+    color: var(--dark);
+    box-shadow: 0 0 15px var(--glow);
+    transform: scale(1.1);
+}
+
+/* Tampilan Garis Blok saat Mode Light */
+body.light-mode .theme-switch {
+    background: #ffffff;
+    border: 2px solid var(--accent-light);
+    color: var(--accent-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .theme-switch:hover {
+    background: var(--accent-light);
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(0, 172, 193, 0.4);
+}
+
+/* --- CSS STRUKTUR SESUAI LAYOUT GAMBAR --- */
+
+/* Container Utama */
+.org-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; /* Jarak vertikal antar baris */
+    padding: 40px 20px;
+}
+
+/* Baris Umum */
+.row-org {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+/* Baris Khusus Sekretaris & Bendahara (Ada celah di tengah) */
+.split-row {
+    display: flex;
+    justify-content: center;
+    gap: 120px; /* Lebar celah tengah sesuai gambar */
+}
+
+.group-pair {
+    display: flex;
+    gap: 20px;
+}
+
+/* Bagian Seksi-Seksi (Grid 4 Kolom) */
+.grid-sections {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Pengaturan Kotak/Card (Node) */
+.node {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 15px;
+    width: 160px; /* Ukuran kotak agar muat 4 kolom */
+    text-align: center;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.node:hover {
+    background: var(--neon);
+    box-shadow: 0 0 30px var(--glow);
+    transform: translateY(-10px);
+}
+
+/* Foto di dalam kotak */
+.pic-box {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--neon);
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.node .label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.node .name {
+    font-family: var(--font-cyber);
+    font-size: 0.8rem;
+    color: var(--neon);
+    text-transform: uppercase;
+}
+
+.node .nisn {
+    font-size: 0.7rem;
+    color: #ccc;
+    margin-top: 4px;
+}
+
+/* Responsif Mobile */
+@media (max-width: 900px) {
+    .grid-sections { grid-template-columns: repeat(2, 1fr); }
+    .split-row { gap: 30px; flex-direction: column; align-items: center; }
+}
+
+/* --- PERBAIKAN LAYAR WELCOME TENGAH --- */
+#welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Menggunakan viewport height penuh */
+    background-color: #010816;
+    display: flex;
+    flex-direction: column; /* Menyusun konten dari atas ke bawah */
+    justify-content: center; /* Menengah secara vertikal */
+    align-items: center;    /* Menengah secara horizontal */
+    z-index: 99999;
+    transition: all 1s ease;
+    text-align: center;
+}
+
+/* Container untuk menjaga jarak antar elemen di dalam welcome */
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Memberi jarak otomatis antara judul, nama, dan tombol */
+}
+
+/* Judul dengan Efek Cahaya Biru (Sesuai Gambar Anda) */
+.welcome-title {
+    font-family: var(--font-cyber);
+    color: var(--neon);
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px var(--neon), 0 0 30px var(--glow);
+    margin: 0;
+}
+
+.welcome-creator {
+    font-family: var(--font-cyber);
+    color: #ffffff;
+    opacity: 0.8;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* Tombol Start Glow (Sesuai Gambar Terakhir Anda) */
+.cyber-button {
+    background: var(--neon); /* Background penuh warna neon */
+    color: #010816; /* Teks gelap agar kontras */
+    font-family: var(--font-cyber);
+    padding: 18px 45px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border-radius: 5px;
+    /* Efek Cahaya Luar */
+    box-shadow: 0 0 20px var(--neon), 0 0 40px var(--glow);
+}
+
+.cyber-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px var(--neon), 0 0 60px var(--glow);
+    background: #ffffff; /* Berubah putih saat hover agar makin terang */
+}
+
+/* Animasi muncul halus */
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Muncul sedikit dari bawah */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cyber-button {
+    background: var(--neon);
+    color: #010816;
+    font-family: var(--font-cyber);
+    padding: 18px 45px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 0 20px var(--neon), 0 0 40px var(--glow);
+    
+    /* Tambahkan baris ini agar munculnya slow motion */
+    display: none; /* Tetap none di awal */
+    animation: fadeInButton 1.5s ease-out forwards; 
+}
+
+:root {
+    --neon: #00e5ff;
+    --dark: #010816;
+    --card: rgba(0, 229, 255, 0.08);
+    --border: rgba(0, 229, 255, 0.25);
+    --glow: rgba(0, 229, 255, 0.6);
+    --font-cyber: 'Orbitron', sans-serif;
+    --font-main: 'Rajdhani', sans-serif;
+    
+    /* Light Mode Variables */
+    --accent-light: #00acc1;
+    --bg-light: #f8f9fa;
+    --card-white: #ffffff;
+    --text-main: #2c3e50;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    scroll-behavior: smooth; 
+}
+
+body { 
+    background-color: var(--dark); 
+    color: white; 
+    font-family: var(--font-main); 
+    overflow-x: hidden; 
+}
+
+/* --- BACKGROUND & NAVIGATION --- */
+.cyber-bg { 
+    position: fixed; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), 
+                      linear-gradient(90deg, var(--border) 1px, transparent 1px); 
+    background-size: 50px 50px; 
+    z-index: -1; opacity: 0.15; 
+}
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 8%; 
+    background: rgba(1, 8, 22, 0.95); 
+    border-bottom: 2px solid var(--neon); 
+    position: sticky; 
+    top: 0; z-index: 1000; 
+}
+
+.logo { 
+    font-family: var(--font-cyber); 
+    color: var(--neon); 
+    font-size: 1.6rem; 
+    letter-spacing: 2px; 
+}
+
+.menu { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
+}
+
+.menu a { 
+    font-family: var(--font-cyber); 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: 0.3s; 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+}
+
+.menu a:hover { 
+    color: var(--neon); 
+    text-shadow: 0 0 10px var(--neon); 
+}
+
+/* --- THEME SWITCH BUTTON --- */
+.theme-switch {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    border: 2px solid var(--neon);
+    background: var(--card);
+    color: var(--neon);
+    transition: 0.3s;
+    margin-left: 15px;
+}
+
+.theme-switch:hover {
+    background: var(--neon);
+    color: var(--dark);
+    box-shadow: 0 0 15px var(--glow);
+}
+
+/* --- WELCOME OVERLAY (FULL SCREEN & CENTERED) --- */
+#welcome-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: all 1s ease;
+    text-align: center;
+}
+
+.welcome-title {
+    font-family: var(--font-cyber);
+    color: var(--neon);
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px var(--neon), 0 0 30px var(--glow);
+    margin-bottom: 10px;
+}
+
+.welcome-creator {
+    font-family: var(--font-cyber);
+    color: #ffffff;
+    opacity: 0.8;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+/* Tombol Start dengan Animasi Muncul Halus */
+.cyber-button {
+    background: var(--neon);
+    color: var(--dark);
+    font-family: var(--font-cyber);
+    padding: 18px 45px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 0 20px var(--neon), 0 0 40px var(--glow);
+    display: none; /* Diatur oleh JS */
+    animation: fadeInButton 1.5s ease-out forwards;
+}
+
+@keyframes fadeInButton {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-out { opacity: 0; visibility: hidden; transform: scale(1.1); }
+
+/* --- SECTIONS & GRIDS --- */
+.header-content-stacked { padding: 100px 5% 60px; text-align: center; }
+
+.siswa-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    padding: 0 8%;
+}
+
+.galeri-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; padding: 0 8%; 
+}
+
+/* --- STRUKTUR ORGANISASI --- */
+.org-container { display: flex; flex-direction: column; align-items: center; gap: 50px; padding: 40px 20px; }
+.grid-sections { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+
+.node { 
+    background: var(--card); border: 1px solid var(--border); 
+    padding: 20px; border-radius: 15px; width: 160px;
+    text-align: center; transition: 0.4s; display: flex; flex-direction: column; align-items: center;
+}
+
+.node:hover { background: var(--neon); box-shadow: 0 0 30px var(--glow); transform: translateY(-10px); color: var(--dark); }
+
+/* --- LIGHT MODE STYLES --- */
+body.light-mode { background-color: var(--bg-light); color: var(--text-main); }
+body.light-mode nav { background: rgba(255, 255, 255, 0.95); border-bottom: 2px solid var(--accent-light); }
+body.light-mode .menu a { color: var(--text-main); }
+body.light-mode .theme-switch { background: white; border-color: var(--accent-light); color: var(--accent-light); }
+body.light-mode .node { background: var(--card-white); border: 1px solid rgba(0, 172, 193, 0.3); box-shadow: var(--shadow-soft); }
+
+/* --- RESPONSIVE MOBILE (HP) --- */
+@media (max-width: 600px) {
+    nav { padding: 10px 5%; }
+    .logo { font-size: 1.1rem; }
+    
+    .menu { 
+        display: flex !important; /* Menu Tetap Muncul */
+        gap: 8px; 
+    }
+
+    .menu a { font-size: 0.55rem; padding: 2px; }
+    
+    .theme-switch { width: 30px; height: 30px; margin-left: 5px; }
+
+    .welcome-title { font-size: 1.4rem; padding: 0 15px; }
+    .cyber-button { padding: 12px 25px; font-size: 0.9rem; }
+
+    .siswa-grid { grid-template-columns: repeat(2, 1fr); }
+    .galeri-grid { grid-template-columns: 1fr; }
+    .grid-sections { grid-template-columns: repeat(2, 1fr); }
+}
